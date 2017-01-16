@@ -1,0 +1,52 @@
+Nick Nikravesh
+recs writeup
+
+HOW THE PROGRAM IS RUN + LINK TO DOWNLOAD DATA
+To compile the program, type "make recs" into the terminal.
+The program is run by calling the executable by typing into the command line 
+./recs along with the arguments for the file the graph is built from,
+the file with the IDs we want to test, the number of ranked recommendations
+desired for each ID, and the file where the output will be stored.
+./recs [input file] [test file] [# of recs] [output file]
+In our vocareum account, the files we used were
+  input file: testdata.txt
+  test file: testIDs.txt
+  # of recs: 5
+  output file: out.txt
+
+The full data file can found at https://snap.stanford.edu/data/egonets-Twitter.html
+
+PROBLEM TO SOLVE
+We were curious to solve the problem of how to enhance the Twitter user
+based on Twitter data of users and the other users they followed. We
+decided to use our newfound knowledge of graphs to figure out how to best
+recommend new users to follow. We approached this problem by analyzing the
+number of a user's follower that follow another user.The more of your
+followers that follow a specific person, the higher chance that person will
+be of interest to you. We note the number of your followers that follow this
+individual in the output of this program with "Number of mutual connections."
+
+HOW WE SOLVED IT
+We started solving this problem by thinking about what objects needed to be
+created and what information needed to be known by each object. We had
+considered implementing a class for edges originally, but decided it was
+not needed because in the problem scope, the users only needed to know who
+they followed and not who followed them. This resulted in our graph having
+directed edges (still have edges represented even if there isn't a formal
+class). We created TGraph and TUser classes to represent the graph and
+verticies. TUser contains the user ID and a list of all of the other users
+that it follows. TGraph contains functions for constructing the graph and 
+ranking the list of recommendations based on the number of mutual connections
+through follows. 
+
+HOW WE TESTED IT
+We tested it as we coded the solution for debugging purposes and to ensure
+that things were working the way we expected them to. We tested using print
+statements and a smaller file of 100 lines of Twitter follow relationships.
+We also purposely added relationships so we knew exactly
+what the output results should be. We compared the ouput we got with what
+we expected in order to figure out if we were on the right track with the
+recs. An edge cases we considered were if there were no
+connections to show which we handled by making sure the program would not 
+seg fault and making it clear to the user that the max number of
+recommendations was 0.
