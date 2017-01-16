@@ -1,4 +1,4 @@
-Nick Nikravesh
+Nick Nikravesh and Sandra Luo
 recs writeup
 
 HOW THE PROGRAM IS RUN + LINK TO DOWNLOAD DATA
@@ -8,7 +8,7 @@ The program is run by calling the executable by typing into the command line
 the file with the IDs we want to test, the number of ranked recommendations
 desired for each ID, and the file where the output will be stored.
 ./recs [input file] [test file] [# of recs] [output file]
-In our vocareum account, the files we used were
+Because the full file is too large for github, we used smaller test files:
   input file: testdata.txt
   test file: testIDs.txt
   # of recs: 5
